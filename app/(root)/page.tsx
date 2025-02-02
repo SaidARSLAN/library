@@ -1,9 +1,19 @@
+import BookList from '@/components/BookList'
+import BookOverview from '@/components/BookOverview'
 import { Button } from '@/components/ui/button'
+import { sampleBooks } from '@/constants'
 
 const Home = () => {
+  const randomNumber = Math.random() * (sampleBooks.length - 1)
+
   return (
     <>
-      <Button>Click me</Button>
+      <BookOverview {...sampleBooks[randomNumber.toFixed(0)]} />
+      <BookList
+        title='Latest Books'
+        books={sampleBooks}
+        containerClasName='mt-28'
+      />
     </>
   )
 }
